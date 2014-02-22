@@ -4,6 +4,16 @@ describe "User pages" do
 
   subject { page }
 
+  describe "Gadgeter page" do
+    let(:user) { User.create(name: "Gadget Manager Nuno Pato", email: "nunopato@applift.com",
+                            password: "mygadget", password_confirmation: "mygadget") }
+
+    before { visit user_path(user) }
+
+    it { should have_content(user.name) }    
+  end
+
+
   describe "signup page" do
     before { visit signup_path }
 
