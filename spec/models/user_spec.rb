@@ -20,4 +20,32 @@ describe User do
     it { should_not be_valid }
   end
 
+  describe "when email format is invalid" do
+    it "should be invalid" do
+      invalid = %w[manager@applift,com manager_at_applift.com]
+      invalid.each do |invalid_address|
+        @user.email = invalid_address
+        expect(@user).not_to be_valid
+      end
+    end
+  end
+
+  describe "when email format is valid" do
+    it "should be valid" do
+      addresses = %w[manager@applift.com gadget.manager@applift.jp]
+      addresses.each do |valid_address|
+        @user.email = valid_address
+        expect(@user).to be_valid
+      end
+    end
+  end
+
+  describe "when email address is duplicate" do
+    before do
+      user_with_same_email = @user.dup
+      user_with_same_email.save
+    end
+    it { should_not be_valid }
+  end
+
 end
