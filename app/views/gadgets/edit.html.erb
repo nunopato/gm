@@ -1,0 +1,13 @@
+<%= form_for(@gadget_image, url: user_gadget_gadget_images_path(@gadget.user, @gadget), :html => { :multipart => true }, method: :post) do |f| %>  
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :data %>
+    <%= f.file_field :data %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Upload" %>
+  </div>
+<% end %>

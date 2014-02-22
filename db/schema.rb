@@ -11,7 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140222151227) do
+ActiveRecord::Schema.define(version: 20140222172714) do
+
+  create_table "gadget_images", force: true do |t|
+    t.string   "name",       null: false
+    t.integer  "gadget_id"
+    t.binary   "data",       null: false
+    t.string   "filename"
+    t.string   "mime_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "gadgets", force: true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "name"

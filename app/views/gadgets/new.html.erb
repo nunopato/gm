@@ -1,0 +1,17 @@
+<% provide(:title, 'New Gadget') %>
+<h1>New Gadget</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@gadget, url: user_gadgets_path(@user)) do |f| %>      
+
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+
+      <%= f.label :description %>
+      <%= f.text_field :description %>
+
+      <%= f.submit "Create my gadget", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

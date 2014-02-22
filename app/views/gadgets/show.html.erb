@@ -1,0 +1,23 @@
+<% provide(:title, @gadget.name) %>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <h1>      
+        <%= @gadget.name %>              
+      </h1>
+    </section>
+  </aside>  
+</div>
+
+<% unless @gadget.gadget_images.empty? %>
+  <% @gadget.gadget_images.each do |image| %>
+    <tr>
+      <td>
+        <%= image.name %>
+      </td>
+      <td>        
+        <%= image_tag(, :id => image.id) %>
+      </td>
+    </tr>
+  <% end %>  
+<% end %>  
