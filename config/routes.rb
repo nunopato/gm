@@ -1,4 +1,5 @@
 Applift::Application.routes.draw do
+  get "users/new"
   root 'users#new'
 
   match '/signup',  to: 'users#new',            via: 'get'
